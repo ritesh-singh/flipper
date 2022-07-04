@@ -6,6 +6,8 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -31,6 +33,15 @@ android {
                 targets 'flipper', 'event_shared', 'event_extra_shared', 'event_core_shared'
             }
         }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     lintOptions {
@@ -69,6 +80,7 @@ android {
         implementation deps.supportAppCompat
         implementation deps.supportSqlite
         implementation deps.websocket
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2"
 
         testImplementation deps.mockito
         testImplementation deps.robolectric

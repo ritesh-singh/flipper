@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.facebook.flipper.sample.tutorial";
+option java_multiple_files = true;
+
+message UserPreferences {
+  bool show_completed = 1;
+  string query = 2;
+  int32 page_number = 3;
+  int32 result_per_page = 4;
+  License license = 5;
+}
+
+message License {
+  string key = 1;
+  string name = 2;
+  string spdx_id = 3;
+  string node_id = 4;
+}
